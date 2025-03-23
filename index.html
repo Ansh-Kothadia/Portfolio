@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <style>
+        body {
+            background-color: #f3e8ff;
+            color: #333;
+        }
+        .navbar {
+            background-color: #5a189a;
+            transform: translate(-6px, -15px);
+            width: 101%;
+        }
+        .right {
+            display: flex;
+            justify-content: end;
+            margin-right: 34px;
+        }
+        .navbar ul {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+            padding: 9px;
+        }
+        .navbar ul li > * {
+            text-decoration: none;
+            color: white;
+        }
+
+        /* Hamburger Icon Styling */
+        .hamburger {
+            display: none; /* Initially hidden on large screens */
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 25px;
+            cursor: pointer;
+            background: transparent;
+            border: none;
+        }
+
+        .line {
+            height: 4px;
+            background-color: #333;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        @media(max-width: 810px) {
+            .hamburger {
+                display: flex; /* Show hamburger icon on smaller screens */
+                transform: translate(10px, 26px);
+            }
+            .navbar{
+                min-height: 70px;
+            }
+            .navbar ul {
+                display: none; /* Initially hide the menu on small screens */
+                flex-direction: column;
+                width: 100%;
+                align-items: center;
+                margin-top: 20px; /* Add some space at the top */
+              
+            }
+            .navbar ul li {
+                margin: 10px 0; /* Space out the items vertically */
+            }
+        }
+
+
+
+        #hero{
+            background: linear-gradient(135deg, #6a0dad, #ffcc70);
+            border-radius: 10px;
+            margin: 50px auto;
+            max-width: 80%;
+            color: white;
+            height: 380px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .img img
+        {
+            height: 300px;
+            padding: 38px;
+            border-radius: 98px;
+            max-width: 80%;
+        }
+        .text{
+            padding: 72px;
+        }
+        .btn button
+        {
+            background: #ff007f;
+            padding: 10px 20px;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+        }
+        .btn button:hover{
+            background-color: #ef479b;
+        }
+        @media (max-width:915px)
+        {
+            #hero{
+                flex-direction: column-reverse;
+                justify-content: space-evenly;
+                height: 520px;
+            }
+            
+            .text{
+                padding: 0px;
+                text-align: center;
+            }
+            .img{
+                display: flex;
+                justify-content: center;
+                margin-top: 23px;
+            }
+            .img img{
+                padding: 0px;
+                border-radius: 51px;
+            }
+        }
+        
+        
+    </style>
+</head>
+<body>
+    <section id="navbar">
+        <div class="navbar">
+            <!-- Hamburger Icon -->
+            <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            <div class="right" id="right">
+                <ul id="menu">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About Me</a></li>
+                    <li><a href="#">Certifications</a></li>
+                    <li><a href="#">Projects</a></li>
+                    <li><a href="#">Contact Me</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section id="hero">
+        <div class="text">
+            <h1>I'm Ansh Kothadia</h1>
+            <p>A passionate and eager to learn Full Stack Developer<p>
+                <div class="btn">
+                    <button>Check Project</button>
+                </div>
+        </div>
+        <div class="img">
+            <img src="./programming-isometric-man-vector-28837307.jpg" alt="programmer">
+        </div>
+      
+    </section>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu');  // Select the <ul> element
+            
+            // Check if the screen width is less than or equal to 810px
+            if (window.innerWidth <= 810) {
+                // Toggle between 'none' and 'flex' to show and hide the menu
+                if (menu.style.display === 'none' || menu.style.display === '') {
+                    menu.style.display = 'flex';  // Show the menu
+                } else {
+                    menu.style.display = 'none';  // Hide the menu
+                }
+            } else {
+                // On large screens (above 810px), always show the menu
+                menu.style.display = 'flex';  // Ensure the menu is visible on large screens
+            }
+        }
+
+        // Ensure the navbar is visible when the window is resized above 810px
+        window.addEventListener('resize', function() {
+            const menu = document.getElementById('menu');
+            if (window.innerWidth > 810) {
+                menu.style.display = 'flex';  // Force the menu to be visible on large screens
+            }
+        });
+    </script>
+</body>
+</html>
+
