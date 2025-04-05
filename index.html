@@ -215,6 +215,8 @@
             align-items: center;
             font-size: 14px;
             border-radius:30px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: fadeInUp 1s  ease-in-out;
         }
         .card1 img{
             height: 202px;
@@ -227,9 +229,112 @@
         #certifications h1{
             text-align: center;
         }
+        /* CSS Styling for Animation Effect on Plans */
+        @keyframes fadeIn 
+        {
+        from { opacity: 0; transform: translateY(-20px); }
+        to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes bounceIn 
+        {
+        from { transform: scale(0.9); opacity: 0; }
+        to { transform: scale(1); opacity: 1; }
+        }   
+
+        .card1:hover 
+        {
+        transform: translateY(-10px);
+        box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.3);
+        }
+        /* End of CSS Styling for Animation Effect on Plans */
+        
+        /* Loader styles */
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color:  #5a189a; /* White text for loader */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column; /* Center content vertically */
+  font-size: 2rem; /* Default font size */
+  z-index: 9999;
+  background-color: transparent; /* Transparent to match homepage background */
+  opacity: 1; /* Fully visible initially */
+  transition: opacity 1s ease; /* Smooth fade-out */
+}
+
+/* Progress bar container */
+.progress-bar-container {
+  width: 80%; /* Default bar width */
+  height: 10px; /* Default bar height */
+  background-color: #444; /* Bar background color */
+  border-radius: 5px;
+  margin-top: 20px; /* Space below portfolio name */
+  overflow: hidden;
+}
+
+/* Progress bar styles */
+.progress-bar {
+  width: 0%; /* Initial width of the bar */
+  height: 100%;
+  /* background-color: #61dafb; Bar fill color */
+  background-color: #5a189a;;
+  animation: loading 4s linear forwards; /* Animate fill */
+}
+
+/* Homepage content hidden initially */
+.homepage {
+  display: none;
+}
+
+/* Animation for progress bar filling */
+@keyframes loading {
+  0% { width: 0%; }
+  100% { width: 100%; }
+}
+
+/* Responsive styles for medium screens (tablets) */
+@media (max-width: 768px) {
+  .loader h1 {
+    font-size: 1.5rem; /* Reduce font size for medium screens */
+  }
+  .progress-bar-container {
+    width: 70%; /* Reduce bar width for medium screens */
+    height: 8px; /* Reduce bar height for medium screens */
+  }
+}
+
+/* Responsive styles for small screens (mobile devices) */
+@media (max-width: 480px) {
+  .loader h1 {
+    font-size: 1.2rem; /* Further reduce font size for small screens */
+    text-align: center; /* Center-align text if it's long */
+    word-wrap: break-word; /* Break long words to fit the screen */
+    margin: 0 10px; /* Add padding to prevent text touching edges */
+  }
+  .progress-bar-container {
+    width: 90%; /* Increase bar width for small screens */
+    height: 6px; /* Make the bar thinner for small screens */
+  }
+}
+
+
     </style>
 </head>
 <body>
+    <!-- Loader -->
+  <div class="loader">
+    <h1>Loading creativity... almost there!</h1>
+    <div class="progress-bar-container">
+        <div class="progress-bar"></div>
+      </div>
+  </div>
+  <div class="homepage">
+  
     <section id="navbar">
         <div class="navbar">
             <!-- Hamburger Icon -->
@@ -254,8 +359,7 @@
             <h1>I'm Ansh Kothadia</h1>
             <p>A passionate and eager to learn Full Stack Developer<p>
                 <div class="btn">
-                    <a href="https://ansh-kothadia.github.io/IT-Project/" style="    text-decoration: none;
-    color: white;"><button>Check Project</button></a>
+                   <a href="https://ansh-kothadia.github.io/IT-Project/"><button>Check Project</button></a>
                 </div>
         </div>
         <div class="img">
@@ -317,7 +421,7 @@
           
         </div>
     </section>
-
+    </div>
 
     <script>
         function toggleMenu() {
@@ -344,6 +448,23 @@
                 menu.style.display = 'flex';  // Force the menu to be visible on large screens
             }
         });
+
+
+
+
+        // JavaScript to handle loader visibility and show homepage
+        window.onload = function() {
+        setTimeout(() => {
+            // Fade out loader
+            document.querySelector('.loader').style.opacity = '0';
+            setTimeout(() => {
+                // Once faded out, hide loader and display homepage
+                document.querySelector('.loader').style.display = 'none';
+                document.querySelector('.homepage').style.display = 'block';
+            }, 1000); // Match fade-out transition (1s)
+        }, 4000); // Wait for 4 seconds (loading animation duration)
+        };
+
     </script>
 </body>
 </html>
