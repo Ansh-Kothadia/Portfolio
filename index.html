@@ -324,6 +324,79 @@
   }
 }
 
+/****************************************** CSS Styling for project section  ********************************************************/
+#project{
+    /* background: #c5e1fc; */
+    /* height: 474px; */
+    /* align-content: center;
+    max-height: 800px; */
+    background: #c5e1fc;
+    /* height: 474px; */
+    align-content: center;
+    max-height: 800px;
+}
+.project1{
+    /* display: flex;
+    flex-wrap: wrap-reverse;
+    justify-content: center;
+    margin: 50px auto;
+    max-width: 80%;
+    gap: 260px;
+    max-height: 1000px;
+    align-content: center; */
+    display: flex;
+    flex-wrap: wrap-reverse;
+    justify-content: space-around;
+    margin: 50px auto;
+    max-width: 80%;
+    /* gap: 260px; */
+    max-height: 1000px;
+    align-content: center
+}
+
+.details{
+    /* font-size: 17px;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 228px; */
+    /* font-size: 17px;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 228px; */
+    font-size: 17px;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 366px;
+}
+.details h1{
+    font-size: 36px;
+}
+
+.IT img{
+    max-width: 445px;
+    max-height: 494px;
+    border-radius: 23px;
+    box-shadow: 1px 1px 16px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    height: 353px;
+}
+@media(max-width:510px)
+{
+    .IT img{
+        /* max-height: 212px; */
+        max-height: 212px;
+        max-width: 260px;
+    }
+}
+@media(max-width:1028px)
+{
+    .IT img{
+        height: 270px;
+    }
+}
+
+/****************************************** End of CSS Styling for project section  *************************************************/
 
     </style>
 </head>
@@ -350,7 +423,7 @@
                     <li><a href="#">Home</a></li>
                     <li><a href="#skill">About Me</a></li>
                     <li><a href="#certifications">Certifications</a></li>
-                    <li><a href="#">Projects</a></li>
+                    <li><a href="#p">Projects</a></li>
                     <li><a href="#">Contact Me</a></li>
                 </ul>
             </div>
@@ -361,7 +434,7 @@
             <h1>I'm Ansh Kothadia</h1>
             <p>A passionate and eager to learn Full Stack Developer<p>
                 <div class="btn">
-                   <a href="https://ansh-kothadia.github.io/IT-Project/"><button>Check Project</button></a>
+                   <a href="#p"><button>Check Project</button></a>
                 </div>
         </div>
         <div class="img">
@@ -427,6 +500,22 @@
                 </div>
             </div>
           
+        </div>
+    </section>
+    <section id="project">
+        <h1 id="p"  style="text-align: center;
+    font-size: 30px;">Projects</h1>
+        <div class="project1">
+            <div class="details">
+                <h1>Project 1:IT Company Website</h1>
+                <p>This project is made to showcase the skills of HTML(Hypertext Markup Language) and CSS(Cascading Style Sheet) for making the website look fabulaous and making the website responsive to every devices.</p>
+                <div class="btn">
+                    <a href="https://ansh-kothadia.github.io/IT-Project/"><button>Check Project</button></a>
+                </div>
+            </div>
+            <div class="IT">
+                <img src="./Screenshot 2025-03-16 104102.png" alt="demo">
+            </div>
         </div>
     </section>
     </div>
